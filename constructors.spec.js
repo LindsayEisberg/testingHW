@@ -49,9 +49,30 @@ function expect(expectation) {
 
 // Write Constructors HERE
 
+function Human(spec) {
+  var spec = spec || {};
+  this.isCool = spec.isCool || true;
+  this.mood = spec.mood || 'happy';
+
+  this.pet = function(pet) {
+    pet.mood = 'happy';
+    this.mood = 'happy';
+  }
+
+  this.feed = function(pet){
+    pet.isHungry = false;
+  }
+}
+
+function Pet(spec) {
+  var spec = spec || {};
+  this.color = spec.color || 'white';
+  this.isHungry = spec.isHungry || false;
+  this.mood = spec.mood || 'happy';
+}
 /* instances defined for unwritten constructors
 ** DO NOT EDIT ANY LINE BELOW
-**
+
 */
 var calvin = new Human({
   isCool: false
